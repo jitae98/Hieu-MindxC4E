@@ -16,11 +16,11 @@
               style="width: 50px"
             />
           </li>
-          <li onclick="a('Dashboard')">Dashboard</li>
-          <li onclick="a('Team')">Team</li>
-          <li onclick="a('Project')">Project</li>
-          <li onclick="a('Calendar')">Calender</li>
-          <li onclick="a('Document')">Document</li>
+          <li onclick="changeTitle('Dashboard')">Dashboard</li>
+          <li onclick="changeTitle('Team')">Team</li>
+          <li onclick="changeTitle('Dashboard')">Project</li>
+          <li onclick="changeTitle('Calendar')">Calender</li>
+          <li onclick="changeTitle('Document')">Document</li>
         </ul>
         <ul class="item">
           <li style="list-style-type: none">
@@ -43,9 +43,9 @@
     </div>
   </body>
   <script>
-    function a(value) {
-      const dashboard = document.getElementsByClassName("title1")[0];
-      dashboard.innerHTML = value;
+    function changeTitle(title) {
+      const titleElement = document.querySelector(".title1");
+      titleElement.textContent = title;
       // string dashboard
 
       // lấy ra chữ
@@ -58,10 +58,9 @@
       if (event.key === "Enter") {
         const searchText = event.target.value;
         contentBox.innerHTML = searchText;
-        event.preventDefault();
+        return false;
       }
     });
     // Gán giá trị searchText vào nội dung của div có id "content" sử dụng innerHTML.
-    // Dùng preventDefault() đê chặn mặc định của Enter
   </script>
 </html>
