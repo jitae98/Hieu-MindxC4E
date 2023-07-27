@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style_login.css" />
+  </head>
+  <body>
+    <div id="login-form">
+      <div id="userName">
+        Username:
+        <input type="text" id="usernameInput" placeholder="Username" />
+      </div>
+      <div id="passWord">
+        Password:
+        <input type="password" id="passwordInput" placeholder="Password" />
+      </div>
+    </div>
+    <button id="loginButton" onclick="goToLogin()">Enter</button>
+    <script>
+      const usernameInput = document.getElementById("usernameInput");
+      const passwordInput = document.getElementById("passwordInput");
+      const loginButton = document.getElementById("loginButton");
+      // changeuser.addEventListener("change")
+      // changepw.addEventListener()
+      let newUser = "";
+      let newPw = "";
+
+      usernameInput.addEventListener("input", function (event) {
+        newUser = event.target.value;
+      });
+
+      passwordInput.addEventListener("input", function (event) {
+        newPw = event.target.value;
+      });
+
+      loginButton.addEventListener("click", checkLogin);
+
+      usernameInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          checkLogin();
+        }
+      });
+
+      passwordInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          checkLogin();
+        }
+      });
+
+      function checkLogin() {
+        console.log(newUser, newPw);
+        if (newUser === "abc" && newPw === "abc") {
+          localStorage.setItem("login_info", true);
+          window.location.href = "home.html";
+        } else {
+          alert("Username and Password incorrect!");
+        }
+      }
+    </script>
+  </body>
+</html>

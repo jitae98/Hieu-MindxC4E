@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="box">
+      <div class="container1">
+        <ul id="navbar">
+          <li class="item2">
+            <img
+              src="—Pngtree—red and black logo_5517319.png"
+              style="width: 50px"
+            />
+          </li>
+          <li class="item2" onclick="changeTitle('Dashboard')">Dashboard</li>
+          <li class="item2" onclick="changeTitle('Team')">Team</li>
+          <li class="item2" onclick="changeTitle('Project')">Project</li>
+          <li class="item2" onclick="changeTitle('Calendar')">Calendar</li>
+          <li class="item2" onclick="changeTitle('Document')">Document</li>
+        </ul>
+        <div class="profile_info">
+            <img
+              src="332865549_527978949445324_971583047878258620_n.jpg"
+              alt="Profile Image"
+              style="width: 50px; height: 50px; border-radius: 50%"
+              class="profile_image"
+            />
+            <div class="profile_name">Hieu</div>
+            <p class="view_profile">View profile</p>
+          </div>
+        </div>
+      </div>
+      <div class="container2">
+        <div class="search_bar">
+          <img
+            src="332865549_527978949445324_971583047878258620_n.jpg"
+            alt="Profile_pic"
+            style="width: 50px; height: 50px; border-radius: 50%"
+          />
+          <p>Search <input class="box2" type="search" id="searchInput" /></p>
+        </div>
+        <div class="content_box">
+          <h2 class="title1">Dashboard</h2>
+          <div class="box4" id="content"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function changeTitle(title) {
+        const titleElement = document.querySelector(".title1");
+        titleElement.textContent = title;
+      }
+
+      const searchInput = document.getElementById("searchInput");
+      const contentBox = document.getElementById("content");
+
+      searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          const searchText = event.target.value;
+          contentBox.innerHTML = searchText;
+        }
+      });
+    </script>
+  </body>
+</html>

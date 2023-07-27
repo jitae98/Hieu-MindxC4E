@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+.box {
+  display: flex;
+}
+.container1 {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  height: 100vh;
+  background-color: rebeccapurple;
+  justify-content: space-between;
+  position: relative;
+  padding-bottom: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.container1 #navbar .item2 {
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+}
+
+.profile_info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgb(48, 48, 79);
+  padding: 10px;
+}
+
+.profile_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile_name {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+}
+
+.view_profile {
+  margin-left: auto;
+  color: white;
+  cursor: pointer;
+}
+
+.item2 {
+  padding: 10px;
+}
+
+#navbar {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+.btn .a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-items: right;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.search_bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 10%;
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+.btn {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #007bff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: auto;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn:active {
+  background-color: #004080;
+}
+
+.search_bar input[type="search"] {
+  flex: 1;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 8px;
+}
+
+.content_box {
+  margin-left: 40px;
+  flex: 1;
+}
+
+#content {
+  border: dashed;
+  height: 600px;
+  margin: 20px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  .box {
+    flex-direction: column-reverse;
+  }
+  .container1 {
+    width: 100%;
+  }
+  .container2 {
+    width: 100%;
+  }
+}
