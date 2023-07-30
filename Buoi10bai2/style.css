@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: cyan;
+  margin-inline: 30%;
+  text-align: center;
+  min-height: 100vh;
+}
+
+header {
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  border: 3px solid black;
+  border-radius: 6px;
+  background-color: white;
+}
+.answer_input_block {
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 8px;
+}
+
+.answer_input {
+  display: flex;
+  gap: 10px 10px;
+}
+
+.space {
+  padding: 20px 0;
+}
+
+.user_guess_form_input {
+  width: 1.7ch;
+  box-sizing: content-box;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.user_guess_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_guess_form_submit_btn {
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 6px;
+  background-color: blanchedalmond;
+}
+
+.time_remain {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 30px;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>⭐Guess the words⭐</h1>
+    </header>
+    <section>
+      <div class="answer">
+        <p>Star your game by typing to the input below</p>
+        <div class="answer_input" id="answer_input_blocks"></div>
+        <div class="answer_hint">
+          <em id="answer_hint_content"> Hint: ... </em>
+        </div>
+      </div>
+      <div class="space"></div>
+      <div class="user_guess">
+        <p>You have <span id="user_guess_remain">0</span> guess(es)</p>
+        <form action="" method="post" id="guess_form" class="user_guess_form">
+          <div class="input_group">
+            <label for="user_guess_input">Type one letter</label>
+            <input
+              type="text"
+              class="user_guess_form_input answer_input_block"
+              id="user_guess_input"
+              maxlength="1"
+            />
+          </div>
+          <button type="submit" class="user_guess_form_submit_btn">
+            Guess
+          </button>
+        </form>
+      </div>
+    </section>
+    <div class="time_remain">
+      <p>Time left: <span id="time_left" class="timeLeft">0</span>s</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
