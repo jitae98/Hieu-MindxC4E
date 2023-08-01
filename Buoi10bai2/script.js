@@ -4,8 +4,8 @@ const ANSWERS = [
     hint: "Type of fish who they can rescue people to avoid dangerous conditions",
   },
   {
-    hint: "Chair",
-    words: "The thing that we can sit down on it",
+    words: "Chair",
+    hint: "The thing that we can sit down on it",
   },
   {
     words: "Bed",
@@ -15,7 +15,7 @@ const ANSWERS = [
 
 // Tạo biến
 let guessRemaining = 3;
-let timeRemaining = 60;
+let timeRemaining = 20;
 let answerObj;
 let guessedLetters = [];
 
@@ -36,16 +36,13 @@ function updateGuessAndTime() {
 // Generate ra câu hỏi bất kì trong ANSWER
 function generateRandomAnswer(answers) {
   const randomAnswerIndex = Math.floor(Math.random() * answers.length);
-  if (answers && Array.isArray(answers) && answers.length > 0) {
-    return answers[randomAnswerIndex];
-  }
-  return {};
+  return answers[randomAnswerIndex];
 }
 
 // Start a new game
 function newGame() {
   guessRemaining = 3;
-  timeRemaining = 60;
+  timeRemaining = 20;
   guessedLetters = [];
   answerObj = generateRandomAnswer(ANSWERS);
   domAnswerHintContent.innerText = "Hint: " + answerObj.hint;
@@ -55,20 +52,17 @@ function newGame() {
 
 // Check if the game is over
 function isGameOver() {
-  return (
-    timeRemaining <= 0 ||
-    guessRemaining <= 0 ||
-    !domUserInputDiv.innerText.includes("*")
-  );
+  return timeRemaining <= 0 || !domUserInputDiv.innerText.includes("*");
 }
 
 // End the game
 function endGame() {
   clearInterval(timer);
   if (timeRemaining <= 0) {
-    alert("Time's up!");
-  } else if (guessRemaining <= 0) {
-    alert("No more guesses left!");
+    alert(`Time's up!
+The correct answer was "${answerObj.words}". 
+Press OK to start a new game.`);
+    location.reload();
   } else {
     alert("Congratulations! You've guessed the word.");
   }
@@ -91,16 +85,33 @@ domGuessForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const guess = domGuessInput.value.toLowerCase();
   domGuessInput.value = "";
-  if (!guessedLetters.includes(guess)) {
-    guessedLetters.push(guess);
-    if (!answerObj.words.toLowerCase().includes(guess)) {
-      guessRemaining--;
+  guessedLetters.push(guess);
+  if (!answerObj.words.toLowerCase().includes(guess)) {
+    guessRemaining--;
+    if (guessRemaining <= 0) {
+      alert(
+        `No more guesses left!
+The correct answer was "${answerObj.words}". 
+Press OK to start a new game.`
+      );
+      location.reload();
+      return;
     }
   }
   updateGuessAndTime();
   updateAnswerBlocks();
   if (isGameOver()) {
     endGame();
+  }
+});
+
+domGuessInput.addEventListener("input", function (event) {
+  const currentInput = this.value.toLowerCase();
+  const lastChar = currentInput.charAt(currentInput.length - 1);
+
+  if (currentInput.length > 1) {
+    // Nếu nhập quá 1 ký tự, giữ lại chỉ 1 ký tự đầu tiên
+    this.value = lastChar;
   }
 });
 

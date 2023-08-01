@@ -5,13 +5,26 @@
 }
 
 body {
-  background-color: cyan;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
   margin-inline: 30%;
   text-align: center;
   min-height: 100vh;
+  animation: changeBackgroundColor 5s infinite;
 }
 
-header {
+@keyframes changeBackgroundColor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container header h1 {
   padding: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -29,10 +42,13 @@ header {
 .answer_input {
   display: flex;
   gap: 10px 10px;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .space {
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .user_guess_form_input {
@@ -51,9 +67,24 @@ header {
 .user_guess_form_submit_btn {
   font-size: 16px;
   padding: 10px 20px;
-  border: 0;
-  border-radius: 6px;
-  background-color: blanchedalmond;
+  border: none;
+  border-radius: 20px; /* Bo góc hơn */
+  background-color: #f4c542; /* Màu nền vàng hấp dẫn */
+  color: #333; /* Màu chữ tối */
+  text-align: center; /* Căn giữa chữ */
+  cursor: pointer; /* Cho biết rằng đây là một phần tử có thể tương tác */
+  transition: all 0.3s ease; /* Hiệu ứng chuyển đổi mượt cho tất cả các thuộc tính */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ */
+}
+
+.user_guess_form_submit_btn:hover {
+  background-color: #f5d76e; /* Màu nền sáng hơn khi rê chuột */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Đổ bóng mạnh hơn */
+}
+
+.user_guess_form_submit_btn:active {
+  transform: translateY(3px); /* Dịch chuyển xuống một chút khi nhấn */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ hơn */
 }
 
 .time_remain {
@@ -61,4 +92,11 @@ header {
   top: 0;
   right: 0;
   margin: 10px 30px;
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.7); /* Màu nền trắng mờ */
+  border-radius: 10px; /* Bo góc */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Đổ bóng */
+  font-size: 18px; /* Kích thước chữ */
+  font-weight: bold; /* Độ đậm của chữ */
+  text-align: center; /* Căn giữa chữ */
 }
